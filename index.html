@@ -17,16 +17,25 @@
         }
 
         .form {
-            height: 300px;
+            height: 200px;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
         }
+        @media (max-width: 500px){
+            .form{
+                flex-direction: column;
+            }
+            .flex{
+                margin: 0.3rem 0;
+            }
+        }
 
         .input {
             padding: 10px;
-            width: 15rem;
+            width: 50vw;
+            max-width: 350px;
         }
 
         .button {
@@ -41,11 +50,12 @@
             grid-template-columns: 1fr 1fr 1fr;
             column-gap: 1rem;
             row-gap: 1rem;
+            margin: 0;
+            padding: 0;
         }
 
         .card {
-            width: 200px;
-            height: 200px;
+            max-width: 250px;
         }
 
         .responsive {
@@ -63,6 +73,9 @@
         .color{
             color: darkorange;
         }
+        .flex{
+            display: flex;
+        }
 
     </style>
 </head>
@@ -70,9 +83,12 @@
 <body>
     <form class="form" action="">
 
+        <div class="flex">
         <input class="input" type="text" placeholder="juan">
         <button class="button">search</button>
+        </div>
 
+        <div class="flex">
         <section>
             <label for="radio5">5</label>
             <input id="radio5" name="limit" class="radio" type="radio" value="5">
@@ -87,6 +103,7 @@
             <label for="radio20">20</label>
             <input id="radio20" name="limit" class="radio" type="radio" value="20">
         </section>
+        </div>
     </form>
 
     <h2 class="search"></h2>
