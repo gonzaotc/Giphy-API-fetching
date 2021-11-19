@@ -48,9 +48,8 @@ llamarAPI("", limit);
 
 form.addEventListener("submit", e => {
     e.preventDefault();
-    console.log("input value:", e.target.firstElementChild.value);
-    let searchKey = e.target.firstElementChild.value;
-    e.target.firstElementChild.value = "";
-
+    console.log("input value:", e.target.firstElementChild.firstElementChild);
+    let searchKey = e.target.firstElementChild.firstElementChild.value;
+    e.target.firstElementChild.firstElementChild.value = "";
     llamarAPI(searchKey, limit);
 });
