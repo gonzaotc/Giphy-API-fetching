@@ -23,11 +23,13 @@
             align-items: center;
             justify-content: center;
         }
-        @media (max-width: 500px){
-            .form{
+
+        @media (max-width: 500px) {
+            .form {
                 flex-direction: column;
             }
-            .flex{
+
+            .flex {
                 margin: 0.3rem 0;
             }
         }
@@ -70,13 +72,20 @@
             justify-content: center;
             margin: 0 0.2rem;
         }
-        .color{
-            color: darkorange;
-        }
-        .flex{
-            display: flex;
+
+        .radio {
+            border: 0px;
+            height: 1.3rem;
+            width: 1.3rem;
         }
 
+        .color {
+            color: darkorange;
+        }
+
+        .flex {
+            display: flex;
+        }
     </style>
 </head>
 
@@ -84,25 +93,25 @@
     <form class="form" action="">
 
         <div class="flex">
-        <input class="input" type="text" placeholder="juan">
-        <button class="button">search</button>
+            <input class="input" type="text" placeholder="juan">
+            <button class="button">search</button>
         </div>
 
         <div class="flex">
-        <section>
-            <label for="radio5">5</label>
-            <input id="radio5" name="limit" class="radio" type="radio" value="5">
-        </section>
+            <section>
+                <label for="radio5">5</label>
+                <input id="radio5" name="limit" class="radio" type="radio" value="5">
+            </section>
 
-        <section>
-            <label for="radio10">10</label>
-            <input id="radio10" name="limit" class="radio" type="radio" value="10">
-        </section>
+            <section>
+                <label for="radio10">10</label>
+                <input id="radio10" name="limit" class="radio" type="radio" value="10">
+            </section>
 
-        <section>
-            <label for="radio20">20</label>
-            <input id="radio20" name="limit" class="radio" type="radio" value="20">
-        </section>
+            <section>
+                <label for="radio20">20</label>
+                <input id="radio20" name="limit" class="radio" type="radio" value="20">
+            </section>
         </div>
     </form>
 
