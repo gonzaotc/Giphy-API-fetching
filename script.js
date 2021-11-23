@@ -14,28 +14,32 @@ const llamarAPI = (searchKey, limit) => {
 
     if (searchKey.length > 1) {
         fetchURL = `https://api.giphy.com/v1/gifs/search?api_key=${KEY}&limit=${limit}&q="${searchKey}"`;
-        search.innerHTML = `<span class="color">${limit}</span> first results for <span class="color">${searchKey}</span>`
+        search.innerHTML = `<span class="color">${limit}</span> first results for <span class="color">${searchKey}</span>`;
     }
 
     console.log(`fetch url:`, fetchURL);
-    fetch(fetchURL)
-        .then(response => response.json())
-        .then(response => {
+
+    $.get(fetchURL, (response, estado) => {
+        if (estado === "success") {
             let gifs = response.data;
             console.log("gifs fetched:", gifs);
 
             gifs.forEach(gif => {
                 lista.innerHTML += `
-                <li class="card">
+                    <li class="card">
                     <img class="responsive" src=${gif.images.downsized_medium.url} alt="" >
-                </li>
-            `;
+                    </li>
+                    `;
             });
-        })
-        .catch(error => console.log("error: ", error));
+        }
+    }).fail( (failedCallback) => {
+        console.warn(`Error at getting the data from the server.\n Info about the error:`);
+        console.warn(failedCallback);
+    });
 };
 
-let limit = 5;
+let limit;
+
 let checkboxes = document.querySelectorAll(".radio");
 checkboxes.forEach(el => {
     el.addEventListener("click", e => {
@@ -44,7 +48,7 @@ checkboxes.forEach(el => {
     });
 });
 
-llamarAPI("", limit);
+llamarAPI("", 5);
 
 form.addEventListener("submit", e => {
     e.preventDefault();
